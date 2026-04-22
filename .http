@@ -10,4 +10,4 @@ GET {{host}}/infos
 
 ###
 
-GET {{host}}/infos
+GET {{host}}/listage
