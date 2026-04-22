@@ -9,6 +9,7 @@ export class AppController {
 
   @Get()
   async getHello(): Promise<string> {
+    console.log("nada")
     console.log(await this.appService.slw())
     return this.appService.getHello();
   }

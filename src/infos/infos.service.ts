@@ -7,9 +7,9 @@ export class InfosService {
     constructor(@Inject("database") private readonly db: PrismaClient){}
 
     async sumParidades(){
-        const data = await this.db.vagas.groupBy({
+        const data = await this.db.ai_analysis.groupBy({
             by: ["paridade"],
-            _count:{
+            _count: {
                 paridade: true
             }
         })
@@ -46,6 +46,7 @@ export class InfosService {
         formatedData = formatedData.sort((x, b) =>{
             return x.i! - b.i!!
         })
-        return formatedData
+        console.log(formatedData)
+        return "data"
     }
 }
