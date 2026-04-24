@@ -16,23 +16,40 @@ export class ListageService {
                 empresa: true,
                 ai_analysis: {
                     select:{
-                        paridade: true
+                        id: true,
+                        paridade: true,
+                        
+                        matches: true,
+                        summary: true,
+                        weaknesses: true,
                     }
                 },
                 plataforma: true,
                 dt_publicacao: true,
                 acesso: true,
-                disponibilidade: true
-            }
+                disponibilidade: true,
+                
+                keywords: true,
+                searchwords: true
+            },
+            // orderBy: {ai_analysis:{
+            //     paridade: {
+            //         sort: "desc"
+            //     }
+            // }}
         })
+
         const treatedData = data.map(x =>{
             let newData = x as any
+
             // se nao tiver paridade ele seta para zero
-            if(!x.ai_analysis?.paridade){
+            if(x.ai_analysis?.paridade){
+	    	    newData = {...newData, paridade: x.ai_analysis.paridade}
+            }else{
                 newData = {...newData, paridade: 0}
-            }
+	        }
             // se nao tiver salario seta um valor
-            if(!x.salario){
+            if(x.salario){
                 newData = {...newData, salario: "nao expecificado"}
             }
             
@@ -41,10 +58,33 @@ export class ListageService {
             const dateFormated = `${date.getDay()}/${date.getMonth()}/${date.getFullYear()}`
             
             newData = {...newData, dt_publicacao: dateFormated}
-            delete newData.ai_analysis
             return newData
         })
-        console.log(treatedData[0])
-        return "treatedData"
+        
+        const slw: any[] = treatedData.map((x: any) =>{
+            const newObj = {
+                ...x,
+                expanded: {
+                    matches: x.ai_analysis?.matches,
+                    summary: x.ai_analysis?.summary,
+                    weaknesses: x.ai_analysis?.weaknesses,
+                    keywords: x.keywords,
+                    searchwords: x.searchwords
+                }
+            }
+            if(newObj.keywords){
+                delete newObj.keywords
+            }
+            if(newObj.searchwords){
+                delete newObj.searchwords
+            }
+            delete newObj.ai_analysis
+            return newObj
+        })
+        
+        console.log(slw)
+        const orderedData = slw.sort((a, b) => b.paridade - a.paridade)
+        // console.log(orderedData[0])
+        return orderedData 
     }
 }

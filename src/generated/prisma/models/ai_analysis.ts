@@ -53,7 +53,7 @@ export type Ai_analysisMaxAggregateOutputType = {
 export type Ai_analysisCountAggregateOutputType = {
   id: number
   paridade: number
-  macthes: number
+  matches: number
   weaknesses: number
   justificativa: number
   summary: number
@@ -89,7 +89,7 @@ export type Ai_analysisMaxAggregateInputType = {
 export type Ai_analysisCountAggregateInputType = {
   id?: true
   paridade?: true
-  macthes?: true
+  matches?: true
   weaknesses?: true
   justificativa?: true
   summary?: true
@@ -186,7 +186,7 @@ export type ai_analysisGroupByArgs<ExtArgs extends runtime.Types.Extensions.Inte
 export type Ai_analysisGroupByOutputType = {
   id: number
   paridade: number | null
-  macthes: string[]
+  matches: string[]
   weaknesses: string[]
   justificativa: string | null
   summary: string | null
@@ -219,7 +219,7 @@ export type ai_analysisWhereInput = {
   NOT?: Prisma.ai_analysisWhereInput | Prisma.ai_analysisWhereInput[]
   id?: Prisma.IntFilter<"ai_analysis"> | number
   paridade?: Prisma.IntNullableFilter<"ai_analysis"> | number | null
-  macthes?: Prisma.StringNullableListFilter<"ai_analysis">
+  matches?: Prisma.StringNullableListFilter<"ai_analysis">
   weaknesses?: Prisma.StringNullableListFilter<"ai_analysis">
   justificativa?: Prisma.StringNullableFilter<"ai_analysis"> | string | null
   summary?: Prisma.StringNullableFilter<"ai_analysis"> | string | null
@@ -230,7 +230,7 @@ export type ai_analysisWhereInput = {
 export type ai_analysisOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   paridade?: Prisma.SortOrderInput | Prisma.SortOrder
-  macthes?: Prisma.SortOrder
+  matches?: Prisma.SortOrder
   weaknesses?: Prisma.SortOrder
   justificativa?: Prisma.SortOrderInput | Prisma.SortOrder
   summary?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -244,7 +244,7 @@ export type ai_analysisWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.ai_analysisWhereInput[]
   NOT?: Prisma.ai_analysisWhereInput | Prisma.ai_analysisWhereInput[]
   paridade?: Prisma.IntNullableFilter<"ai_analysis"> | number | null
-  macthes?: Prisma.StringNullableListFilter<"ai_analysis">
+  matches?: Prisma.StringNullableListFilter<"ai_analysis">
   weaknesses?: Prisma.StringNullableListFilter<"ai_analysis">
   justificativa?: Prisma.StringNullableFilter<"ai_analysis"> | string | null
   summary?: Prisma.StringNullableFilter<"ai_analysis"> | string | null
@@ -255,7 +255,7 @@ export type ai_analysisWhereUniqueInput = Prisma.AtLeast<{
 export type ai_analysisOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   paridade?: Prisma.SortOrderInput | Prisma.SortOrder
-  macthes?: Prisma.SortOrder
+  matches?: Prisma.SortOrder
   weaknesses?: Prisma.SortOrder
   justificativa?: Prisma.SortOrderInput | Prisma.SortOrder
   summary?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -273,7 +273,7 @@ export type ai_analysisScalarWhereWithAggregatesInput = {
   NOT?: Prisma.ai_analysisScalarWhereWithAggregatesInput | Prisma.ai_analysisScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"ai_analysis"> | number
   paridade?: Prisma.IntNullableWithAggregatesFilter<"ai_analysis"> | number | null
-  macthes?: Prisma.StringNullableListFilter<"ai_analysis">
+  matches?: Prisma.StringNullableListFilter<"ai_analysis">
   weaknesses?: Prisma.StringNullableListFilter<"ai_analysis">
   justificativa?: Prisma.StringNullableWithAggregatesFilter<"ai_analysis"> | string | null
   summary?: Prisma.StringNullableWithAggregatesFilter<"ai_analysis"> | string | null
@@ -282,7 +282,7 @@ export type ai_analysisScalarWhereWithAggregatesInput = {
 
 export type ai_analysisCreateInput = {
   paridade?: number | null
-  macthes?: Prisma.ai_analysisCreatemacthesInput | string[]
+  matches?: Prisma.ai_analysisCreatematchesInput | string[]
   weaknesses?: Prisma.ai_analysisCreateweaknessesInput | string[]
   justificativa?: string | null
   summary?: string | null
@@ -293,7 +293,7 @@ export type ai_analysisCreateInput = {
 export type ai_analysisUncheckedCreateInput = {
   id?: number
   paridade?: number | null
-  macthes?: Prisma.ai_analysisCreatemacthesInput | string[]
+  matches?: Prisma.ai_analysisCreatematchesInput | string[]
   weaknesses?: Prisma.ai_analysisCreateweaknessesInput | string[]
   justificativa?: string | null
   summary?: string | null
@@ -303,7 +303,7 @@ export type ai_analysisUncheckedCreateInput = {
 
 export type ai_analysisUpdateInput = {
   paridade?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  macthes?: Prisma.ai_analysisUpdatemacthesInput | string[]
+  matches?: Prisma.ai_analysisUpdatematchesInput | string[]
   weaknesses?: Prisma.ai_analysisUpdateweaknessesInput | string[]
   justificativa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -314,7 +314,7 @@ export type ai_analysisUpdateInput = {
 export type ai_analysisUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   paridade?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  macthes?: Prisma.ai_analysisUpdatemacthesInput | string[]
+  matches?: Prisma.ai_analysisUpdatematchesInput | string[]
   weaknesses?: Prisma.ai_analysisUpdateweaknessesInput | string[]
   justificativa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -325,7 +325,7 @@ export type ai_analysisUncheckedUpdateInput = {
 export type ai_analysisCreateManyInput = {
   id?: number
   paridade?: number | null
-  macthes?: Prisma.ai_analysisCreatemacthesInput | string[]
+  matches?: Prisma.ai_analysisCreatematchesInput | string[]
   weaknesses?: Prisma.ai_analysisCreateweaknessesInput | string[]
   justificativa?: string | null
   summary?: string | null
@@ -334,7 +334,7 @@ export type ai_analysisCreateManyInput = {
 
 export type ai_analysisUpdateManyMutationInput = {
   paridade?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  macthes?: Prisma.ai_analysisUpdatemacthesInput | string[]
+  matches?: Prisma.ai_analysisUpdatematchesInput | string[]
   weaknesses?: Prisma.ai_analysisUpdateweaknessesInput | string[]
   justificativa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -344,7 +344,7 @@ export type ai_analysisUpdateManyMutationInput = {
 export type ai_analysisUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   paridade?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  macthes?: Prisma.ai_analysisUpdatemacthesInput | string[]
+  matches?: Prisma.ai_analysisUpdatematchesInput | string[]
   weaknesses?: Prisma.ai_analysisUpdateweaknessesInput | string[]
   justificativa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -362,7 +362,7 @@ export type StringNullableListFilter<$PrismaModel = never> = {
 export type ai_analysisCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   paridade?: Prisma.SortOrder
-  macthes?: Prisma.SortOrder
+  matches?: Prisma.SortOrder
   weaknesses?: Prisma.SortOrder
   justificativa?: Prisma.SortOrder
   summary?: Prisma.SortOrder
@@ -398,7 +398,7 @@ export type Ai_analysisNullableScalarRelationFilter = {
   isNot?: Prisma.ai_analysisWhereInput | null
 }
 
-export type ai_analysisCreatemacthesInput = {
+export type ai_analysisCreatematchesInput = {
   set: string[]
 }
 
@@ -418,7 +418,7 @@ export type NullableIntFieldUpdateOperationsInput = {
   divide?: number
 }
 
-export type ai_analysisUpdatemacthesInput = {
+export type ai_analysisUpdatematchesInput = {
   set?: string[]
   push?: string | string[]
 }
@@ -463,7 +463,7 @@ export type ai_analysisUpdateOneWithoutVagasNestedInput = {
 
 export type ai_analysisCreateWithoutVagasInput = {
   paridade?: number | null
-  macthes?: Prisma.ai_analysisCreatemacthesInput | string[]
+  matches?: Prisma.ai_analysisCreatematchesInput | string[]
   weaknesses?: Prisma.ai_analysisCreateweaknessesInput | string[]
   justificativa?: string | null
   summary?: string | null
@@ -473,7 +473,7 @@ export type ai_analysisCreateWithoutVagasInput = {
 export type ai_analysisUncheckedCreateWithoutVagasInput = {
   id?: number
   paridade?: number | null
-  macthes?: Prisma.ai_analysisCreatemacthesInput | string[]
+  matches?: Prisma.ai_analysisCreatematchesInput | string[]
   weaknesses?: Prisma.ai_analysisCreateweaknessesInput | string[]
   justificativa?: string | null
   summary?: string | null
@@ -498,7 +498,7 @@ export type ai_analysisUpdateToOneWithWhereWithoutVagasInput = {
 
 export type ai_analysisUpdateWithoutVagasInput = {
   paridade?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  macthes?: Prisma.ai_analysisUpdatemacthesInput | string[]
+  matches?: Prisma.ai_analysisUpdatematchesInput | string[]
   weaknesses?: Prisma.ai_analysisUpdateweaknessesInput | string[]
   justificativa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -508,7 +508,7 @@ export type ai_analysisUpdateWithoutVagasInput = {
 export type ai_analysisUncheckedUpdateWithoutVagasInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   paridade?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  macthes?: Prisma.ai_analysisUpdatemacthesInput | string[]
+  matches?: Prisma.ai_analysisUpdatematchesInput | string[]
   weaknesses?: Prisma.ai_analysisUpdateweaknessesInput | string[]
   justificativa?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -549,7 +549,7 @@ export type Ai_analysisCountOutputTypeCountVagasArgs<ExtArgs extends runtime.Typ
 export type ai_analysisSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   paridade?: boolean
-  macthes?: boolean
+  matches?: boolean
   weaknesses?: boolean
   justificativa?: boolean
   summary?: boolean
@@ -561,7 +561,7 @@ export type ai_analysisSelect<ExtArgs extends runtime.Types.Extensions.InternalA
 export type ai_analysisSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   paridade?: boolean
-  macthes?: boolean
+  matches?: boolean
   weaknesses?: boolean
   justificativa?: boolean
   summary?: boolean
@@ -571,7 +571,7 @@ export type ai_analysisSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
 export type ai_analysisSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   paridade?: boolean
-  macthes?: boolean
+  matches?: boolean
   weaknesses?: boolean
   justificativa?: boolean
   summary?: boolean
@@ -581,14 +581,14 @@ export type ai_analysisSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
 export type ai_analysisSelectScalar = {
   id?: boolean
   paridade?: boolean
-  macthes?: boolean
+  matches?: boolean
   weaknesses?: boolean
   justificativa?: boolean
   summary?: boolean
   requisitos?: boolean
 }
 
-export type ai_analysisOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "paridade" | "macthes" | "weaknesses" | "justificativa" | "summary" | "requisitos", ExtArgs["result"]["ai_analysis"]>
+export type ai_analysisOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "paridade" | "matches" | "weaknesses" | "justificativa" | "summary" | "requisitos", ExtArgs["result"]["ai_analysis"]>
 export type ai_analysisInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   vagas?: boolean | Prisma.ai_analysis$vagasArgs<ExtArgs>
   _count?: boolean | Prisma.Ai_analysisCountOutputTypeDefaultArgs<ExtArgs>
@@ -604,7 +604,7 @@ export type $ai_analysisPayload<ExtArgs extends runtime.Types.Extensions.Interna
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     paridade: number | null
-    macthes: string[]
+    matches: string[]
     weaknesses: string[]
     justificativa: string | null
     summary: string | null
@@ -1035,7 +1035,7 @@ export interface Prisma__ai_analysisClient<T, Null = never, ExtArgs extends runt
 export interface ai_analysisFieldRefs {
   readonly id: Prisma.FieldRef<"ai_analysis", 'Int'>
   readonly paridade: Prisma.FieldRef<"ai_analysis", 'Int'>
-  readonly macthes: Prisma.FieldRef<"ai_analysis", 'String[]'>
+  readonly matches: Prisma.FieldRef<"ai_analysis", 'String[]'>
   readonly weaknesses: Prisma.FieldRef<"ai_analysis", 'String[]'>
   readonly justificativa: Prisma.FieldRef<"ai_analysis", 'String'>
   readonly summary: Prisma.FieldRef<"ai_analysis", 'String'>

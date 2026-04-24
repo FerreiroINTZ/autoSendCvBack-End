@@ -9,7 +9,8 @@ export class ListageController {
     @Get()
     async getVacanciesRoute(){
         const data: any = await this.listageService.getVanancies()
-        // console.log(data.map(x => x.titulo))
+        // console.log(data)
+	    console.log(data.length)
         return data
     }
 }

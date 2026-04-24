@@ -75,7 +75,7 @@ export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof
 export const Ai_analysisScalarFieldEnum = {
   id: 'id',
   paridade: 'paridade',
-  macthes: 'macthes',
+  matches: 'matches',
   weaknesses: 'weaknesses',
   justificativa: 'justificativa',
   summary: 'summary',
@@ -110,7 +110,8 @@ export const VagasScalarFieldEnum = {
   acesso: 'acesso',
   disponibilidade: 'disponibilidade',
   ai_analysis_fk: 'ai_analysis_fk',
-  keywords: 'keywords'
+  keywords: 'keywords',
+  searchwords: 'searchwords'
 } as const
 
 export type VagasScalarFieldEnum = (typeof VagasScalarFieldEnum)[keyof typeof VagasScalarFieldEnum]

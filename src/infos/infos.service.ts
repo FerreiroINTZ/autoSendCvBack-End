@@ -47,6 +47,6 @@ export class InfosService {
             return x.i! - b.i!!
         })
         console.log(formatedData)
-        return "data"
+        return formatedData
     }
 }

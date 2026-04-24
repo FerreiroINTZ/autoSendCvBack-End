@@ -12,7 +12,7 @@ datasource db {
 model ai_analysis {
   id            Int      @id @default(autoincrement())
   paridade      Int?
-  matches       String[] @db.VarChar(100)
+  macthes       String[] @db.VarChar(100)
   weaknesses    String[] @db.VarChar(200)
   justificativa String?
   summary       String?  @db.VarChar(200)
