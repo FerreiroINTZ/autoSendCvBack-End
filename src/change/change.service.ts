@@ -9,7 +9,7 @@ export class ChangeService {
 
     async changeAcessState(id: number, state: States){
         try{
-
+            console.log(typeof id)
             const data = await this.db.vagas.update({
                 data:{
                     acesso: state
@@ -20,6 +20,7 @@ export class ChangeService {
             })
             return true
         }catch(e){
+            console.log(e)
             return false
         }
     }

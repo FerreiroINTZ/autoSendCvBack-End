@@ -1,4 +1,4 @@
-import { Controller, Get, Query, Res } from '@nestjs/common';
+import { Controller, Get, Query, Res, BadRequestException } from '@nestjs/common';
 import {ChangeService} from "./change.service"
 import {QueryDTO} from "./query.dto" 
 import {type Response} from "express"
@@ -9,11 +9,15 @@ export class ChangeController {
     constructor(private readonly db: ChangeService){}
 
     @Get()
-    async changeState(@Query() query: QueryDTO, @Res() resp: Response){
+    async changeState(
+        @Query() query: QueryDTO, 
+    ){
         const slw = await this.db.changeAcessState(query.id, query.state)
+        console.log(slw)
         if(!slw){
-            return resp.status(401).send("Erro ao mudar os dados no Banco!")
+            throw new BadRequestException("Erro ao mudar os dados no Banco!")
         }
-        return "dados alterados!"
+        console.log(query)
+        return "Dados alterados!"
     }
 }

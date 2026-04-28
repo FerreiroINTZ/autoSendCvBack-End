@@ -4,7 +4,7 @@ import {
     IsEnum
 } from "class-validator"
 
-import {Type} from "class-transformer"
+import {Type, Transform} from "class-transformer"
 
 export enum States {
     salvo = "salvo",
@@ -19,10 +19,10 @@ type QueryValues = {
 
 export class QueryDTO implements QueryValues{
 
-    @IsInt({message: "ID precisa ser passado!"})
+    @IsInt({message: "ID precisa ser valido!"})
     @Type(() => Number)
     id!: number
-
-    @IsEnum(States, {message: "STATE precisa estar correto!"})
+    
+    @IsEnum(States)
     state!: States
 }
