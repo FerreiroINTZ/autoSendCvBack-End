@@ -10,25 +10,33 @@ export class InfosService {
         const data = await this.db.ai_analysis.groupBy({
             by: ["paridade"],
             _count: {
-                paridade: true
+                _all: true
             }
         })
-        const paridades = ["pessimos", "ruins", "bons", "perfeitos"]
+        
+        // console.log(data)
+
+        const paridades = ["pessimos", "ruins", "bons", "perfeitos", "outros"]
         let formatedData = data.map((x, index) =>{
             let newData = {
-                vall: x._count.paridade,
-                index: x.paridade && paridades[x.paridade - 1],
-                i: x.paridade
+                // quantidade
+                vall: x._count._all,
+                // nome da paridade
+                index: x.paridade ? paridades[x.paridade - 1] : paridades[4],
+                // indice, efetivamente
+                i: x.paridade ? x.paridade : 0
             }
             return newData
         }).filter(x => x.index)
+        // console.log(formatedData)
+        
         for(let i in paridades){
             let qtd = 0
             formatedData.forEach(x =>{
                 // verifica se ja existe
                 // se ja tiver pelo menos uma ocorrencia ele soma
                 if(x.index == paridades[i]){
-                    console.log("igual")
+                    // console.log("igual")
                     qtd++
                 }
             })
@@ -38,6 +46,7 @@ export class InfosService {
                 formatedData.push({vall: 0, index: paridades[i], i: Number(i) + 1})
             }
         }
+        
         const total = formatedData.reduce((prev,currVall) =>{
             return currVall.vall + prev
         }, 0)

@@ -11,7 +11,7 @@ export class InfosController {
     async slw(){
         console.log("slw")
         const data = await this.infosService.sumParidades()
-        console.log(data)
+        // console.log(data)
         return data
     }
 }
