@@ -6,10 +6,10 @@ import {
 
 import {Type} from "class-transformer"
 
-enum States {
-    salvo,
-    acessado,
-    aplicado
+export enum States {
+    salvo = "salvo",
+    acessado = "acessado",
+    aplicado = "aplicado"
 }
 
 type QueryValues = {

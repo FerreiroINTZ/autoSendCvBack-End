@@ -14,4 +14,4 @@ GET {{host}}/listage
 
 ###
 
-GET {{host}}/change?id=20&state=salvo
+GET {{host}}/change?id=360&state=salvo
