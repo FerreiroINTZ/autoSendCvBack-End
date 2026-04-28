@@ -7,10 +7,12 @@ import { InfosModule } from './infos/infos.module';
 import { ListageController } from './listage/listage.controller';
 import { ListageService } from './listage/listage.service';
 import { ListageModule } from './listage/listage.module';
+import { ChangeController } from './change/change.controller';
+import { ChangeService } from './change/change.service';
 
 @Module({
   imports: [DatabaseServiceModule, InfosModule, ListageModule],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, ChangeController],
+  providers: [AppService, ChangeService],
 })
 export class AppModule {}

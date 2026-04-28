@@ -11,3 +11,7 @@ GET {{host}}/infos
 ###
 
 GET {{host}}/listage
+
+###
+
+GET {{host}}/change?id=20&state=salvo

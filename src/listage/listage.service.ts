@@ -9,6 +9,7 @@ export class ListageService {
     async getVanancies(){
         const data = await this.db.vagas.findMany({
             select: {
+                id: true,
                 titulo: true,
                 area: true,
                 link: true,
