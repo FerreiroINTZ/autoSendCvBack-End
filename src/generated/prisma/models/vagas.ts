@@ -55,6 +55,7 @@ export type VagasMinAggregateOutputType = {
   acesso: string | null
   disponibilidade: boolean | null
   ai_analysis_fk: number | null
+  last_disp_analysis: Date | null
 }
 
 export type VagasMaxAggregateOutputType = {
@@ -74,6 +75,7 @@ export type VagasMaxAggregateOutputType = {
   acesso: string | null
   disponibilidade: boolean | null
   ai_analysis_fk: number | null
+  last_disp_analysis: Date | null
 }
 
 export type VagasCountAggregateOutputType = {
@@ -95,6 +97,7 @@ export type VagasCountAggregateOutputType = {
   ai_analysis_fk: number
   keywords: number
   searchwords: number
+  last_disp_analysis: number
   _all: number
 }
 
@@ -128,6 +131,7 @@ export type VagasMinAggregateInputType = {
   acesso?: true
   disponibilidade?: true
   ai_analysis_fk?: true
+  last_disp_analysis?: true
 }
 
 export type VagasMaxAggregateInputType = {
@@ -147,6 +151,7 @@ export type VagasMaxAggregateInputType = {
   acesso?: true
   disponibilidade?: true
   ai_analysis_fk?: true
+  last_disp_analysis?: true
 }
 
 export type VagasCountAggregateInputType = {
@@ -168,6 +173,7 @@ export type VagasCountAggregateInputType = {
   ai_analysis_fk?: true
   keywords?: true
   searchwords?: true
+  last_disp_analysis?: true
   _all?: true
 }
 
@@ -276,6 +282,7 @@ export type VagasGroupByOutputType = {
   ai_analysis_fk: number | null
   keywords: string[]
   searchwords: string[]
+  last_disp_analysis: Date | null
   _count: VagasCountAggregateOutputType | null
   _avg: VagasAvgAggregateOutputType | null
   _sum: VagasSumAggregateOutputType | null
@@ -320,6 +327,7 @@ export type vagasWhereInput = {
   ai_analysis_fk?: Prisma.IntNullableFilter<"vagas"> | number | null
   keywords?: Prisma.StringNullableListFilter<"vagas">
   searchwords?: Prisma.StringNullableListFilter<"vagas">
+  last_disp_analysis?: Prisma.DateTimeNullableFilter<"vagas"> | Date | string | null
   ai_analysis?: Prisma.XOR<Prisma.Ai_analysisNullableScalarRelationFilter, Prisma.ai_analysisWhereInput> | null
   descricoes?: Prisma.XOR<Prisma.DescricoesNullableScalarRelationFilter, Prisma.descricoesWhereInput> | null
 }
@@ -343,6 +351,7 @@ export type vagasOrderByWithRelationInput = {
   ai_analysis_fk?: Prisma.SortOrderInput | Prisma.SortOrder
   keywords?: Prisma.SortOrder
   searchwords?: Prisma.SortOrder
+  last_disp_analysis?: Prisma.SortOrderInput | Prisma.SortOrder
   ai_analysis?: Prisma.ai_analysisOrderByWithRelationInput
   descricoes?: Prisma.descricoesOrderByWithRelationInput
 }
@@ -369,6 +378,7 @@ export type vagasWhereUniqueInput = Prisma.AtLeast<{
   ai_analysis_fk?: Prisma.IntNullableFilter<"vagas"> | number | null
   keywords?: Prisma.StringNullableListFilter<"vagas">
   searchwords?: Prisma.StringNullableListFilter<"vagas">
+  last_disp_analysis?: Prisma.DateTimeNullableFilter<"vagas"> | Date | string | null
   ai_analysis?: Prisma.XOR<Prisma.Ai_analysisNullableScalarRelationFilter, Prisma.ai_analysisWhereInput> | null
   descricoes?: Prisma.XOR<Prisma.DescricoesNullableScalarRelationFilter, Prisma.descricoesWhereInput> | null
 }, "id">
@@ -392,6 +402,7 @@ export type vagasOrderByWithAggregationInput = {
   ai_analysis_fk?: Prisma.SortOrderInput | Prisma.SortOrder
   keywords?: Prisma.SortOrder
   searchwords?: Prisma.SortOrder
+  last_disp_analysis?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.vagasCountOrderByAggregateInput
   _avg?: Prisma.vagasAvgOrderByAggregateInput
   _max?: Prisma.vagasMaxOrderByAggregateInput
@@ -421,6 +432,7 @@ export type vagasScalarWhereWithAggregatesInput = {
   ai_analysis_fk?: Prisma.IntNullableWithAggregatesFilter<"vagas"> | number | null
   keywords?: Prisma.StringNullableListFilter<"vagas">
   searchwords?: Prisma.StringNullableListFilter<"vagas">
+  last_disp_analysis?: Prisma.DateTimeNullableWithAggregatesFilter<"vagas"> | Date | string | null
 }
 
 export type vagasCreateInput = {
@@ -439,6 +451,7 @@ export type vagasCreateInput = {
   disponibilidade?: boolean | null
   keywords?: Prisma.vagasCreatekeywordsInput | string[]
   searchwords?: Prisma.vagasCreatesearchwordsInput | string[]
+  last_disp_analysis?: Date | string | null
   ai_analysis?: Prisma.ai_analysisCreateNestedOneWithoutVagasInput
   descricoes?: Prisma.descricoesCreateNestedOneWithoutVagasInput
 }
@@ -462,6 +475,7 @@ export type vagasUncheckedCreateInput = {
   ai_analysis_fk?: number | null
   keywords?: Prisma.vagasCreatekeywordsInput | string[]
   searchwords?: Prisma.vagasCreatesearchwordsInput | string[]
+  last_disp_analysis?: Date | string | null
 }
 
 export type vagasUpdateInput = {
@@ -480,6 +494,7 @@ export type vagasUpdateInput = {
   disponibilidade?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   keywords?: Prisma.vagasUpdatekeywordsInput | string[]
   searchwords?: Prisma.vagasUpdatesearchwordsInput | string[]
+  last_disp_analysis?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   ai_analysis?: Prisma.ai_analysisUpdateOneWithoutVagasNestedInput
   descricoes?: Prisma.descricoesUpdateOneWithoutVagasNestedInput
 }
@@ -503,6 +518,7 @@ export type vagasUncheckedUpdateInput = {
   ai_analysis_fk?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   keywords?: Prisma.vagasUpdatekeywordsInput | string[]
   searchwords?: Prisma.vagasUpdatesearchwordsInput | string[]
+  last_disp_analysis?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type vagasCreateManyInput = {
@@ -524,6 +540,7 @@ export type vagasCreateManyInput = {
   ai_analysis_fk?: number | null
   keywords?: Prisma.vagasCreatekeywordsInput | string[]
   searchwords?: Prisma.vagasCreatesearchwordsInput | string[]
+  last_disp_analysis?: Date | string | null
 }
 
 export type vagasUpdateManyMutationInput = {
@@ -542,6 +559,7 @@ export type vagasUpdateManyMutationInput = {
   disponibilidade?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   keywords?: Prisma.vagasUpdatekeywordsInput | string[]
   searchwords?: Prisma.vagasUpdatesearchwordsInput | string[]
+  last_disp_analysis?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type vagasUncheckedUpdateManyInput = {
@@ -563,6 +581,7 @@ export type vagasUncheckedUpdateManyInput = {
   ai_analysis_fk?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   keywords?: Prisma.vagasUpdatekeywordsInput | string[]
   searchwords?: Prisma.vagasUpdatesearchwordsInput | string[]
+  last_disp_analysis?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type VagasListRelationFilter = {
@@ -594,6 +613,7 @@ export type vagasCountOrderByAggregateInput = {
   ai_analysis_fk?: Prisma.SortOrder
   keywords?: Prisma.SortOrder
   searchwords?: Prisma.SortOrder
+  last_disp_analysis?: Prisma.SortOrder
 }
 
 export type vagasAvgOrderByAggregateInput = {
@@ -619,6 +639,7 @@ export type vagasMaxOrderByAggregateInput = {
   acesso?: Prisma.SortOrder
   disponibilidade?: Prisma.SortOrder
   ai_analysis_fk?: Prisma.SortOrder
+  last_disp_analysis?: Prisma.SortOrder
 }
 
 export type vagasMinOrderByAggregateInput = {
@@ -638,6 +659,7 @@ export type vagasMinOrderByAggregateInput = {
   acesso?: Prisma.SortOrder
   disponibilidade?: Prisma.SortOrder
   ai_analysis_fk?: Prisma.SortOrder
+  last_disp_analysis?: Prisma.SortOrder
 }
 
 export type vagasSumOrderByAggregateInput = {
@@ -772,6 +794,7 @@ export type vagasCreateWithoutAi_analysisInput = {
   disponibilidade?: boolean | null
   keywords?: Prisma.vagasCreatekeywordsInput | string[]
   searchwords?: Prisma.vagasCreatesearchwordsInput | string[]
+  last_disp_analysis?: Date | string | null
   descricoes?: Prisma.descricoesCreateNestedOneWithoutVagasInput
 }
 
@@ -793,6 +816,7 @@ export type vagasUncheckedCreateWithoutAi_analysisInput = {
   disponibilidade?: boolean | null
   keywords?: Prisma.vagasCreatekeywordsInput | string[]
   searchwords?: Prisma.vagasCreatesearchwordsInput | string[]
+  last_disp_analysis?: Date | string | null
 }
 
 export type vagasCreateOrConnectWithoutAi_analysisInput = {
@@ -843,6 +867,7 @@ export type vagasScalarWhereInput = {
   ai_analysis_fk?: Prisma.IntNullableFilter<"vagas"> | number | null
   keywords?: Prisma.StringNullableListFilter<"vagas">
   searchwords?: Prisma.StringNullableListFilter<"vagas">
+  last_disp_analysis?: Prisma.DateTimeNullableFilter<"vagas"> | Date | string | null
 }
 
 export type vagasCreateWithoutDescricoesInput = {
@@ -861,6 +886,7 @@ export type vagasCreateWithoutDescricoesInput = {
   disponibilidade?: boolean | null
   keywords?: Prisma.vagasCreatekeywordsInput | string[]
   searchwords?: Prisma.vagasCreatesearchwordsInput | string[]
+  last_disp_analysis?: Date | string | null
   ai_analysis?: Prisma.ai_analysisCreateNestedOneWithoutVagasInput
 }
 
@@ -882,6 +908,7 @@ export type vagasUncheckedCreateWithoutDescricoesInput = {
   ai_analysis_fk?: number | null
   keywords?: Prisma.vagasCreatekeywordsInput | string[]
   searchwords?: Prisma.vagasCreatesearchwordsInput | string[]
+  last_disp_analysis?: Date | string | null
 }
 
 export type vagasCreateOrConnectWithoutDescricoesInput = {
@@ -928,6 +955,7 @@ export type vagasCreateManyAi_analysisInput = {
   disponibilidade?: boolean | null
   keywords?: Prisma.vagasCreatekeywordsInput | string[]
   searchwords?: Prisma.vagasCreatesearchwordsInput | string[]
+  last_disp_analysis?: Date | string | null
 }
 
 export type vagasUpdateWithoutAi_analysisInput = {
@@ -946,6 +974,7 @@ export type vagasUpdateWithoutAi_analysisInput = {
   disponibilidade?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   keywords?: Prisma.vagasUpdatekeywordsInput | string[]
   searchwords?: Prisma.vagasUpdatesearchwordsInput | string[]
+  last_disp_analysis?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   descricoes?: Prisma.descricoesUpdateOneWithoutVagasNestedInput
 }
 
@@ -967,6 +996,7 @@ export type vagasUncheckedUpdateWithoutAi_analysisInput = {
   disponibilidade?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   keywords?: Prisma.vagasUpdatekeywordsInput | string[]
   searchwords?: Prisma.vagasUpdatesearchwordsInput | string[]
+  last_disp_analysis?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type vagasUncheckedUpdateManyWithoutAi_analysisInput = {
@@ -987,6 +1017,7 @@ export type vagasUncheckedUpdateManyWithoutAi_analysisInput = {
   disponibilidade?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   keywords?: Prisma.vagasUpdatekeywordsInput | string[]
   searchwords?: Prisma.vagasUpdatesearchwordsInput | string[]
+  last_disp_analysis?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type vagasCreateManyDescricoesInput = {
@@ -1007,6 +1038,7 @@ export type vagasCreateManyDescricoesInput = {
   ai_analysis_fk?: number | null
   keywords?: Prisma.vagasCreatekeywordsInput | string[]
   searchwords?: Prisma.vagasCreatesearchwordsInput | string[]
+  last_disp_analysis?: Date | string | null
 }
 
 export type vagasUpdateWithoutDescricoesInput = {
@@ -1025,6 +1057,7 @@ export type vagasUpdateWithoutDescricoesInput = {
   disponibilidade?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   keywords?: Prisma.vagasUpdatekeywordsInput | string[]
   searchwords?: Prisma.vagasUpdatesearchwordsInput | string[]
+  last_disp_analysis?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   ai_analysis?: Prisma.ai_analysisUpdateOneWithoutVagasNestedInput
 }
 
@@ -1046,6 +1079,7 @@ export type vagasUncheckedUpdateWithoutDescricoesInput = {
   ai_analysis_fk?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   keywords?: Prisma.vagasUpdatekeywordsInput | string[]
   searchwords?: Prisma.vagasUpdatesearchwordsInput | string[]
+  last_disp_analysis?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type vagasUncheckedUpdateManyWithoutDescricoesInput = {
@@ -1066,6 +1100,7 @@ export type vagasUncheckedUpdateManyWithoutDescricoesInput = {
   ai_analysis_fk?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   keywords?: Prisma.vagasUpdatekeywordsInput | string[]
   searchwords?: Prisma.vagasUpdatesearchwordsInput | string[]
+  last_disp_analysis?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 
@@ -1089,6 +1124,7 @@ export type vagasSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   ai_analysis_fk?: boolean
   keywords?: boolean
   searchwords?: boolean
+  last_disp_analysis?: boolean
   ai_analysis?: boolean | Prisma.vagas$ai_analysisArgs<ExtArgs>
   descricoes?: boolean | Prisma.vagas$descricoesArgs<ExtArgs>
 }, ExtArgs["result"]["vagas"]>
@@ -1112,6 +1148,7 @@ export type vagasSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   ai_analysis_fk?: boolean
   keywords?: boolean
   searchwords?: boolean
+  last_disp_analysis?: boolean
   ai_analysis?: boolean | Prisma.vagas$ai_analysisArgs<ExtArgs>
   descricoes?: boolean | Prisma.vagas$descricoesArgs<ExtArgs>
 }, ExtArgs["result"]["vagas"]>
@@ -1135,6 +1172,7 @@ export type vagasSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   ai_analysis_fk?: boolean
   keywords?: boolean
   searchwords?: boolean
+  last_disp_analysis?: boolean
   ai_analysis?: boolean | Prisma.vagas$ai_analysisArgs<ExtArgs>
   descricoes?: boolean | Prisma.vagas$descricoesArgs<ExtArgs>
 }, ExtArgs["result"]["vagas"]>
@@ -1158,9 +1196,10 @@ export type vagasSelectScalar = {
   ai_analysis_fk?: boolean
   keywords?: boolean
   searchwords?: boolean
+  last_disp_analysis?: boolean
 }
 
-export type vagasOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "titulo" | "empresa" | "cidade" | "link" | "dt_publicacao" | "area" | "salario" | "plataforma" | "jobid" | "modalidade" | "dt_register" | "descricao_fk" | "acesso" | "disponibilidade" | "ai_analysis_fk" | "keywords" | "searchwords", ExtArgs["result"]["vagas"]>
+export type vagasOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "titulo" | "empresa" | "cidade" | "link" | "dt_publicacao" | "area" | "salario" | "plataforma" | "jobid" | "modalidade" | "dt_register" | "descricao_fk" | "acesso" | "disponibilidade" | "ai_analysis_fk" | "keywords" | "searchwords" | "last_disp_analysis", ExtArgs["result"]["vagas"]>
 export type vagasInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   ai_analysis?: boolean | Prisma.vagas$ai_analysisArgs<ExtArgs>
   descricoes?: boolean | Prisma.vagas$descricoesArgs<ExtArgs>
@@ -1199,6 +1238,7 @@ export type $vagasPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     ai_analysis_fk: number | null
     keywords: string[]
     searchwords: string[]
+    last_disp_analysis: Date | null
   }, ExtArgs["result"]["vagas"]>
   composites: {}
 }
@@ -1642,6 +1682,7 @@ export interface vagasFieldRefs {
   readonly ai_analysis_fk: Prisma.FieldRef<"vagas", 'Int'>
   readonly keywords: Prisma.FieldRef<"vagas", 'String[]'>
   readonly searchwords: Prisma.FieldRef<"vagas", 'String[]'>
+  readonly last_disp_analysis: Prisma.FieldRef<"vagas", 'DateTime'>
 }
     
 

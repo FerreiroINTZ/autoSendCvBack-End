@@ -29,6 +29,7 @@ export class ListageService {
                 dt_publicacao: true,
                 acesso: true,
                 disponibilidade: true,
+                last_disp_analysis: true,
                 
                 keywords: true,
                 searchwords: true
@@ -83,9 +84,20 @@ export class ListageService {
             return newObj
         })
         
-        console.log(slw)
+        // console.log(slw)
         const orderedData = slw.sort((a, b) => b.paridade - a.paridade)
         // console.log(orderedData[0])
         return orderedData 
+    }
+
+    async getVancanyCardInfo(id: number){
+
+        const data = await this.db.vagas.findFirst({
+            where: {
+                id: id
+            }
+        })
+
+        return data
     }
 }
