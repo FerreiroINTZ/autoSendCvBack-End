@@ -18,4 +18,4 @@ GET {{host}}/change?id=360&state=salvo
 
 ###
 
-GET {{host}}/listage/getVancanyCardInfo?id=491
+GET {{host}}/listage/getVancanyCardInfo?id=492

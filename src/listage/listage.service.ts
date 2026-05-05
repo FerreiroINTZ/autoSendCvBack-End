@@ -95,9 +95,15 @@ export class ListageService {
         const data = await this.db.vagas.findFirst({
             where: {
                 id: id
+            },
+            include: {
+                ai_analysis: true
             }
         })
 
-        return data
+        let {ai_analysis, ...rest}: any = data
+        const flatteninedData = {...ai_analysis, ...rest}
+
+        return flatteninedData
     }
 }
