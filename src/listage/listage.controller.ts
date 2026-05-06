@@ -32,7 +32,8 @@ export class ListageController {
             console.log("nulo!")
             return "vaga nao existe!"
         }
-        console.log(Object.keys(vanacnyData))
+        console.log(vanacnyData)
+        // console.log(Object.keys(vanacnyData))
 
         return vanacnyData
     }

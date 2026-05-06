@@ -97,12 +97,17 @@ export class ListageService {
                 id: id
             },
             include: {
-                ai_analysis: true
+                ai_analysis: true,
+                descricoes: {
+                    select: {
+                        descricao: true
+                    }
+                }
             }
         })
 
-        let {ai_analysis, ...rest}: any = data
-        const flatteninedData = {...ai_analysis, ...rest}
+        let {ai_analysis, descricoes, ...rest}: any = data
+        const flatteninedData = {...ai_analysis, ...descricoes, ...rest}
 
         return flatteninedData
     }
