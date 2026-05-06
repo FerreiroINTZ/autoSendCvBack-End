@@ -25,19 +25,21 @@ export class ChangeService {
         }
     }
 
-    async changeFavorited(id: number){
-        const userFavorited: any = await this.db.vagas.findUnique({
+    // busca o registro, depois altera ele
+    async changeFavorited(id: string){
+        const userFavorited: any = await this.db.vagas.findFirst({
             where:{
-                id: id
+                jobid: id
             },
             select: {
+                id: true,
                 favoritado: true
             }
         })
 
         const data = await this.db.vagas.update({
             where: {
-                id
+                id: userFavorited.id
             },
             data: {
                 favoritado: !userFavorited.favoritado
@@ -50,19 +52,21 @@ export class ChangeService {
         return data
     }
 
-    async changeDisponibilidade(id: number){
-        const userDisponibilidade: any = await this.db.vagas.findUnique({
+    // busca o registro, depois altera ele
+    async changeDisponibilidade(id: string){
+        const userDisponibilidade: any = await this.db.vagas.findFirst({
             where:{
-                id: id
+                jobid: id
             },
             select: {
+                id: true,
                 disponibilidade: true
             }
         })
 
         const data = await this.db.vagas.update({
             where: {
-                id
+                id: userDisponibilidade.id
             },
             data: {
                 disponibilidade: !userDisponibilidade.disponibilidade

@@ -30,14 +30,14 @@ export class ChangeController {
 
     @Get("/favorited/:id")
     async changeFavorited(@Param() params: any){
-        const data = await this.db.changeFavorited(Number(params.id))
+        const data = await this.db.changeFavorited(params.id)
         console.log(data)
         return true
     }
 
     @Get("/disponibilidade/:id")
     async changeDisponibilidade(@Param() params: any){
-        const data = await this.db.changeDisponibilidade(Number(params.id))
+        const data = await this.db.changeDisponibilidade(params.id)
         console.log(data)
         return true
     }
