@@ -1,4 +1,11 @@
-import { Controller, Get, Query, Res, BadRequestException } from '@nestjs/common';
+import { 
+    Controller, 
+    Get, 
+    Query, 
+    Res, 
+    BadRequestException,
+    Param 
+} from '@nestjs/common';
 import {ChangeService} from "./change.service"
 import {QueryDTO} from "./query.dto" 
 import {type Response} from "express"
@@ -19,5 +26,19 @@ export class ChangeController {
         }
         console.log(query)
         return "Dados alterados!"
+    }
+
+    @Get("/favorited/:id")
+    async changeFavorited(@Param() params: any){
+        const data = await this.db.changeFavorited(Number(params.id))
+        console.log(data)
+        return true
+    }
+
+    @Get("/disponibilidade/:id")
+    async changeDisponibilidade(@Param() params: any){
+        const data = await this.db.changeDisponibilidade(Number(params.id))
+        console.log(data)
+        return true
     }
 }

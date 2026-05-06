@@ -19,3 +19,11 @@ GET {{host}}/change?id=360&state=salvo
 ###
 
 GET {{host}}/listage/getVancanyCardInfo?id=492
+
+###
+
+GET {{host}}/change/favorited/492
+
+###
+
+GET {{host}}/change/disponibilidade/492
