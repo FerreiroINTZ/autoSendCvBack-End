@@ -78,4 +78,31 @@ export class ChangeService {
 
         return data
     }
+
+    // busca o registro, depois altera ele
+    async deleteVacancy(id: string){
+        console.log(id)
+        const vacancyId: any = await this.db.vagas.findFirst({
+            where:{
+                jobid: id
+            },
+            select: {
+                id: true,
+            }
+        })
+
+        const data = await this.db.vagas.update({
+            where: {
+                id: vacancyId.id
+            },
+            data: {
+                desconsiderar: true
+            },
+            select: {
+                desconsiderar: true
+            }
+        })
+
+        return data
+    }
 }

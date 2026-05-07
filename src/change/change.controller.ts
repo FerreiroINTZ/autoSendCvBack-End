@@ -41,4 +41,11 @@ export class ChangeController {
         console.log(data)
         return true
     }
+
+    @Get("/delete/:id")
+    async deleteVacancy(@Param() params: any){
+        const data = await this.db.deleteVacancy(params.id)
+        console.log(data)
+        return true
+    }
 }

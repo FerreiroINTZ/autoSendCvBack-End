@@ -1,4 +1,6 @@
 @host = http://localhost:3000
+@jobId = 4409046299
+@id = 492
 
 ###
 
@@ -27,3 +29,7 @@ GET {{host}}/change/favorited/492
 ###
 
 GET {{host}}/change/disponibilidade/492
+
+###
+
+GET {{host}}/change/delete/{{jobId}}

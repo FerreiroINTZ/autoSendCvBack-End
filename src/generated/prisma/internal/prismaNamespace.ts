@@ -708,7 +708,8 @@ export const VagasScalarFieldEnum = {
   keywords: 'keywords',
   searchwords: 'searchwords',
   last_disp_analysis: 'last_disp_analysis',
-  favoritado: 'favoritado'
+  favoritado: 'favoritado',
+  desconsiderar: 'desconsiderar'
 } as const
 
 export type VagasScalarFieldEnum = (typeof VagasScalarFieldEnum)[keyof typeof VagasScalarFieldEnum]
