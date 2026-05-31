@@ -53,7 +53,12 @@ export const AnyNull = runtime.AnyNull
 export const ModelName = {
   ai_analysis: 'ai_analysis',
   descricoes: 'descricoes',
-  vagas: 'vagas'
+  vagas: 'vagas',
+  get_last_disp_analysis_formated: 'get_last_disp_analysis_formated',
+  get_vacancies_vw: 'get_vacancies_vw',
+  somar_pesquisa_feita_hoje: 'somar_pesquisa_feita_hoje',
+  analyse_all_vacancies_getted: 'analyse_all_vacancies_getted',
+  analyse_today_vacancies_getted: 'analyse_today_vacancies_getted'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -118,6 +123,61 @@ export const VagasScalarFieldEnum = {
 } as const
 
 export type VagasScalarFieldEnum = (typeof VagasScalarFieldEnum)[keyof typeof VagasScalarFieldEnum]
+
+
+export const Get_last_disp_analysis_formatedScalarFieldEnum = {
+  id: 'id',
+  last_disp_analys: 'last_disp_analys'
+} as const
+
+export type Get_last_disp_analysis_formatedScalarFieldEnum = (typeof Get_last_disp_analysis_formatedScalarFieldEnum)[keyof typeof Get_last_disp_analysis_formatedScalarFieldEnum]
+
+
+export const Get_vacancies_vwScalarFieldEnum = {
+  id: 'id',
+  area: 'area',
+  link: 'link',
+  salario: 'salario',
+  empresa: 'empresa',
+  titulo: 'titulo',
+  plataforma: 'plataforma',
+  dt_publicacao: 'dt_publicacao',
+  disponibilidade: 'disponibilidade',
+  acesso: 'acesso',
+  last_disp_analys: 'last_disp_analys',
+  paridade: 'paridade',
+  summary: 'summary',
+  matches: 'matches',
+  weaknesses: 'weaknesses',
+  justificativa: 'justificativa'
+} as const
+
+export type Get_vacancies_vwScalarFieldEnum = (typeof Get_vacancies_vwScalarFieldEnum)[keyof typeof Get_vacancies_vwScalarFieldEnum]
+
+
+export const Somar_pesquisa_feita_hojeScalarFieldEnum = {
+  coalesce: 'coalesce',
+  count: 'count',
+  sum: 'sum'
+} as const
+
+export type Somar_pesquisa_feita_hojeScalarFieldEnum = (typeof Somar_pesquisa_feita_hojeScalarFieldEnum)[keyof typeof Somar_pesquisa_feita_hojeScalarFieldEnum]
+
+
+export const Analyse_all_vacancies_gettedScalarFieldEnum = {
+  case: 'case',
+  count: 'count'
+} as const
+
+export type Analyse_all_vacancies_gettedScalarFieldEnum = (typeof Analyse_all_vacancies_gettedScalarFieldEnum)[keyof typeof Analyse_all_vacancies_gettedScalarFieldEnum]
+
+
+export const Analyse_today_vacancies_gettedScalarFieldEnum = {
+  paridade: 'paridade',
+  qtd: 'qtd'
+} as const
+
+export type Analyse_today_vacancies_gettedScalarFieldEnum = (typeof Analyse_today_vacancies_gettedScalarFieldEnum)[keyof typeof Analyse_today_vacancies_gettedScalarFieldEnum]
 
 
 export const SortOrder = {

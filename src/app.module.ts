@@ -9,10 +9,12 @@ import { ListageService } from './listage/listage.service';
 import { ListageModule } from './listage/listage.module';
 import { ChangeController } from './change/change.controller';
 import { ChangeService } from './change/change.service';
+import { TestesController } from './testes/testes.controller';
+import { TestesService } from './testes/testes.service';
 
 @Module({
   imports: [DatabaseServiceModule, InfosModule, ListageModule],
-  controllers: [AppController, ChangeController],
-  providers: [AppService, ChangeService],
+  controllers: [AppController, ChangeController, TestesController],
+  providers: [AppService, ChangeService, TestesService],
 })
 export class AppModule {}

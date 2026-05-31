@@ -1,7 +1,8 @@
 generator client {
-  provider     = "prisma-client"
-  output       = "../src/generated/prisma"
-  moduleFormat = "cjs"
+  provider        = "prisma-client"
+  output          = "../src/generated/prisma"
+  previewFeatures = ["views"]
+  moduleFormat    = "cjs"
 }
 
 datasource db {
@@ -50,4 +51,56 @@ model vagas {
   desconsiderar      Boolean?     @default(false)
   ai_analysis        ai_analysis? @relation(fields: [ai_analysis_fk], references: [id], onDelete: Cascade)
   descricoes         descricoes?  @relation(fields: [descricao_fk], references: [id], onDelete: Cascade, onUpdate: NoAction)
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model history {
+  id         Int       @default(autoincrement())
+  vacancy_fk Int?
+  dt_acesso  DateTime? @default(dbgenerated("CURRENT_DATE")) @db.Date
+  tmp_acesso DateTime? @default(dbgenerated("CURRENT_TIME")) @db.Time(6)
+
+  @@ignore
+}
+
+view get_last_disp_analysis_formated {
+  id               Int
+  last_disp_analys String?
+}
+
+view get_vacancies_vw {
+  id               Int
+  area             String   @db.VarChar(100)
+  link             String   @db.VarChar(200)
+  salario          String   @db.VarChar(12)
+  empresa          String   @db.VarChar(200)
+  titulo           String   @db.VarChar(200)
+  plataforma       String   @db.VarChar(20)
+  dt_publicacao    DateTime @db.Date
+  disponibilidade  Boolean
+  acesso           String   @db.VarChar(20)
+  /// de outro view
+  last_disp_analys String
+  /// da tabela da IA
+  paridade         Int
+  summary          String @db.VarChar(200)
+  matches          String[] @db.VarChar(100)
+  weaknesses       String[] @db.VarChar(200)
+  justificativa    String
+}
+
+view somar_pesquisa_feita_hoje {
+  coalesce String?
+  count    BigInt?
+  sum      BigInt?
+}
+
+view analyse_all_vacancies_getted {
+  case  String?
+  count BigInt?
+}
+
+view analyse_today_vacancies_getted {
+  paridade String?
+  qtd      BigInt?
 }

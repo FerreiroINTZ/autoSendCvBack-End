@@ -33,3 +33,15 @@ GET {{host}}/change/disponibilidade/492
 ###
 
 GET {{host}}/change/delete/{{jobId}}
+
+###
+
+GET {{host}}/listage?page=1
+
+###
+
+GET {{host}}/listage/getFilterInfos
+
+###
+
+GET {{host}}/testes

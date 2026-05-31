@@ -386,7 +386,12 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 export const ModelName = {
   ai_analysis: 'ai_analysis',
   descricoes: 'descricoes',
-  vagas: 'vagas'
+  vagas: 'vagas',
+  get_last_disp_analysis_formated: 'get_last_disp_analysis_formated',
+  get_vacancies_vw: 'get_vacancies_vw',
+  somar_pesquisa_feita_hoje: 'somar_pesquisa_feita_hoje',
+  analyse_all_vacancies_getted: 'analyse_all_vacancies_getted',
+  analyse_today_vacancies_getted: 'analyse_today_vacancies_getted'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -402,7 +407,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "ai_analysis" | "descricoes" | "vagas"
+    modelProps: "ai_analysis" | "descricoes" | "vagas" | "get_last_disp_analysis_formated" | "get_vacancies_vw" | "somar_pesquisa_feita_hoje" | "analyse_all_vacancies_getted" | "analyse_today_vacancies_getted"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -628,6 +633,156 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    get_last_disp_analysis_formated: {
+      payload: Prisma.$get_last_disp_analysis_formatedPayload<ExtArgs>
+      fields: Prisma.get_last_disp_analysis_formatedFieldRefs
+      operations: {
+        findFirst: {
+          args: Prisma.get_last_disp_analysis_formatedFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$get_last_disp_analysis_formatedPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.get_last_disp_analysis_formatedFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$get_last_disp_analysis_formatedPayload>
+        }
+        findMany: {
+          args: Prisma.get_last_disp_analysis_formatedFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$get_last_disp_analysis_formatedPayload>[]
+        }
+        aggregate: {
+          args: Prisma.Get_last_disp_analysis_formatedAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateGet_last_disp_analysis_formated>
+        }
+        groupBy: {
+          args: Prisma.get_last_disp_analysis_formatedGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Get_last_disp_analysis_formatedGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.get_last_disp_analysis_formatedCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Get_last_disp_analysis_formatedCountAggregateOutputType> | number
+        }
+      }
+    }
+    get_vacancies_vw: {
+      payload: Prisma.$get_vacancies_vwPayload<ExtArgs>
+      fields: Prisma.get_vacancies_vwFieldRefs
+      operations: {
+        findFirst: {
+          args: Prisma.get_vacancies_vwFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$get_vacancies_vwPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.get_vacancies_vwFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$get_vacancies_vwPayload>
+        }
+        findMany: {
+          args: Prisma.get_vacancies_vwFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$get_vacancies_vwPayload>[]
+        }
+        aggregate: {
+          args: Prisma.Get_vacancies_vwAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateGet_vacancies_vw>
+        }
+        groupBy: {
+          args: Prisma.get_vacancies_vwGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Get_vacancies_vwGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.get_vacancies_vwCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Get_vacancies_vwCountAggregateOutputType> | number
+        }
+      }
+    }
+    somar_pesquisa_feita_hoje: {
+      payload: Prisma.$somar_pesquisa_feita_hojePayload<ExtArgs>
+      fields: Prisma.somar_pesquisa_feita_hojeFieldRefs
+      operations: {
+        findFirst: {
+          args: Prisma.somar_pesquisa_feita_hojeFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$somar_pesquisa_feita_hojePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.somar_pesquisa_feita_hojeFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$somar_pesquisa_feita_hojePayload>
+        }
+        findMany: {
+          args: Prisma.somar_pesquisa_feita_hojeFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$somar_pesquisa_feita_hojePayload>[]
+        }
+        aggregate: {
+          args: Prisma.Somar_pesquisa_feita_hojeAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSomar_pesquisa_feita_hoje>
+        }
+        groupBy: {
+          args: Prisma.somar_pesquisa_feita_hojeGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Somar_pesquisa_feita_hojeGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.somar_pesquisa_feita_hojeCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Somar_pesquisa_feita_hojeCountAggregateOutputType> | number
+        }
+      }
+    }
+    analyse_all_vacancies_getted: {
+      payload: Prisma.$analyse_all_vacancies_gettedPayload<ExtArgs>
+      fields: Prisma.analyse_all_vacancies_gettedFieldRefs
+      operations: {
+        findFirst: {
+          args: Prisma.analyse_all_vacancies_gettedFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$analyse_all_vacancies_gettedPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.analyse_all_vacancies_gettedFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$analyse_all_vacancies_gettedPayload>
+        }
+        findMany: {
+          args: Prisma.analyse_all_vacancies_gettedFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$analyse_all_vacancies_gettedPayload>[]
+        }
+        aggregate: {
+          args: Prisma.Analyse_all_vacancies_gettedAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAnalyse_all_vacancies_getted>
+        }
+        groupBy: {
+          args: Prisma.analyse_all_vacancies_gettedGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Analyse_all_vacancies_gettedGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.analyse_all_vacancies_gettedCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Analyse_all_vacancies_gettedCountAggregateOutputType> | number
+        }
+      }
+    }
+    analyse_today_vacancies_getted: {
+      payload: Prisma.$analyse_today_vacancies_gettedPayload<ExtArgs>
+      fields: Prisma.analyse_today_vacancies_gettedFieldRefs
+      operations: {
+        findFirst: {
+          args: Prisma.analyse_today_vacancies_gettedFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$analyse_today_vacancies_gettedPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.analyse_today_vacancies_gettedFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$analyse_today_vacancies_gettedPayload>
+        }
+        findMany: {
+          args: Prisma.analyse_today_vacancies_gettedFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$analyse_today_vacancies_gettedPayload>[]
+        }
+        aggregate: {
+          args: Prisma.Analyse_today_vacancies_gettedAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAnalyse_today_vacancies_getted>
+        }
+        groupBy: {
+          args: Prisma.analyse_today_vacancies_gettedGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Analyse_today_vacancies_gettedGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.analyse_today_vacancies_gettedCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.Analyse_today_vacancies_gettedCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -715,6 +870,61 @@ export const VagasScalarFieldEnum = {
 export type VagasScalarFieldEnum = (typeof VagasScalarFieldEnum)[keyof typeof VagasScalarFieldEnum]
 
 
+export const Get_last_disp_analysis_formatedScalarFieldEnum = {
+  id: 'id',
+  last_disp_analys: 'last_disp_analys'
+} as const
+
+export type Get_last_disp_analysis_formatedScalarFieldEnum = (typeof Get_last_disp_analysis_formatedScalarFieldEnum)[keyof typeof Get_last_disp_analysis_formatedScalarFieldEnum]
+
+
+export const Get_vacancies_vwScalarFieldEnum = {
+  id: 'id',
+  area: 'area',
+  link: 'link',
+  salario: 'salario',
+  empresa: 'empresa',
+  titulo: 'titulo',
+  plataforma: 'plataforma',
+  dt_publicacao: 'dt_publicacao',
+  disponibilidade: 'disponibilidade',
+  acesso: 'acesso',
+  last_disp_analys: 'last_disp_analys',
+  paridade: 'paridade',
+  summary: 'summary',
+  matches: 'matches',
+  weaknesses: 'weaknesses',
+  justificativa: 'justificativa'
+} as const
+
+export type Get_vacancies_vwScalarFieldEnum = (typeof Get_vacancies_vwScalarFieldEnum)[keyof typeof Get_vacancies_vwScalarFieldEnum]
+
+
+export const Somar_pesquisa_feita_hojeScalarFieldEnum = {
+  coalesce: 'coalesce',
+  count: 'count',
+  sum: 'sum'
+} as const
+
+export type Somar_pesquisa_feita_hojeScalarFieldEnum = (typeof Somar_pesquisa_feita_hojeScalarFieldEnum)[keyof typeof Somar_pesquisa_feita_hojeScalarFieldEnum]
+
+
+export const Analyse_all_vacancies_gettedScalarFieldEnum = {
+  case: 'case',
+  count: 'count'
+} as const
+
+export type Analyse_all_vacancies_gettedScalarFieldEnum = (typeof Analyse_all_vacancies_gettedScalarFieldEnum)[keyof typeof Analyse_all_vacancies_gettedScalarFieldEnum]
+
+
+export const Analyse_today_vacancies_gettedScalarFieldEnum = {
+  paridade: 'paridade',
+  qtd: 'qtd'
+} as const
+
+export type Analyse_today_vacancies_gettedScalarFieldEnum = (typeof Analyse_today_vacancies_gettedScalarFieldEnum)[keyof typeof Analyse_today_vacancies_gettedScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -791,6 +1001,20 @@ export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaM
  * Reference to a field of type 'Boolean'
  */
 export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+/**
+ * Reference to a field of type 'BigInt'
+ */
+export type BigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt'>
+    
+
+
+/**
+ * Reference to a field of type 'BigInt[]'
+ */
+export type ListBigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt[]'>
     
 
 
@@ -920,6 +1144,11 @@ export type GlobalOmitConfig = {
   ai_analysis?: Prisma.ai_analysisOmit
   descricoes?: Prisma.descricoesOmit
   vagas?: Prisma.vagasOmit
+  get_last_disp_analysis_formated?: Prisma.get_last_disp_analysis_formatedOmit
+  get_vacancies_vw?: Prisma.get_vacancies_vwOmit
+  somar_pesquisa_feita_hoje?: Prisma.somar_pesquisa_feita_hojeOmit
+  analyse_all_vacancies_getted?: Prisma.analyse_all_vacancies_gettedOmit
+  analyse_today_vacancies_getted?: Prisma.analyse_today_vacancies_gettedOmit
 }
 
 /* Types for Logging */

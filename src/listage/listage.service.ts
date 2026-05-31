@@ -1,13 +1,28 @@
 import { Injectable, Inject } from '@nestjs/common';
 import {PrismaClient} from "@PrismaClient"
 // import {DatabaseServiceModule} from "../database-service/database-service.module"
+import {FilterDTO} from "./listageFilter.dto"
 
 @Injectable()
 export class ListageService {
     constructor(@Inject("database") private readonly db: PrismaClient){}
 
-    async getVanancies(){
+    transformFiltersValuesInPrismaFilters(filters: FilterDTO){
+        
+    }
+
+    async getVanancies(filters: FilterDTO){
+        console.log(filters)
+        const dados = await this.db.get_vacancies_vw.findMany({
+            orderBy: {
+                paridade: filters.ordemParidade
+            },
+            skip: (filters.page - 1) * 100,
+            take: filters.page * -10,
+        })
         const data = await this.db.vagas.findMany({
+            skip: (filters.page - 1) * 100,
+            take: filters.page * -10,
             select: {
                 id: true,
                 titulo: true,
@@ -19,7 +34,6 @@ export class ListageService {
                     select:{
                         id: true,
                         paridade: true,
-                        
                         matches: true,
                         summary: true,
                         weaknesses: true,
@@ -34,11 +48,22 @@ export class ListageService {
                 keywords: true,
                 searchwords: true
             },
-            // orderBy: {ai_analysis:{
-            //     paridade: {
-            //         sort: "desc"
-            //     }
-            // }}
+            where: {
+                ai_analysis: {
+                    paridade: {
+                        in: filters.paridades
+                    }
+                },
+                plataforma: {
+                    in: filters.sites
+                },
+                disponibilidade: true, // ou so nao existe aqui
+                acesso: {
+                    in: filters.acesso
+                }
+                
+            },
+            
         })
 
         const treatedData = data.map(x =>{
@@ -63,6 +88,7 @@ export class ListageService {
             return newData
         })
         
+        // formata o objeto para o client
         const slw: any[] = treatedData.map((x: any) =>{
             const newObj = {
                 ...x,
@@ -85,7 +111,14 @@ export class ListageService {
         })
         
         // console.log(slw)
-        const orderedData = slw.sort((a, b) => b.paridade - a.paridade)
+        const orderedData = slw.sort((a, b) => {
+            // console.log(filters.ordemParidade)
+            if(filters.ordemParidade){
+                return b.paridade - a.paridade
+            }else{
+                return a.paridade - b.paridade
+            }
+        })
         // console.log(orderedData[0])
         return orderedData 
     }
@@ -110,5 +143,27 @@ export class ListageService {
         const flatteninedData = {...ai_analysis, ...descricoes, ...rest}
 
         return flatteninedData
+    }
+
+    async getVacanciesFilterInfos(){
+        const countParidade = await this.db.ai_analysis.groupBy({
+            by: ["paridade"],
+            _count: {
+                _all: true
+            }
+        })
+        const counDisponibilidades = await this.db.vagas.groupBy({
+            by: ["disponibilidade"],
+            _count: {
+                _all: true
+            }
+        })
+        const countSites = await this.db.vagas.groupBy({
+            by: ["plataforma"],
+            _count: {
+                _all: true
+            }
+        })
+        return {countParidade, countSites, counDisponibilidades}
     }
 }

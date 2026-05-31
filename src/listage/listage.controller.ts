@@ -1,6 +1,6 @@
 import { Controller, Get, Query } from '@nestjs/common';
 import {ListageService} from "./listage.service"
-import { constants } from 'node:buffer';
+import {FilterDTO} from "./listageFilter.dto"
 
 @Controller('listage')
 export class ListageController {
@@ -8,10 +8,10 @@ export class ListageController {
     constructor(private readonly listageService: ListageService){}
 
     @Get()
-    async getVacanciesRoute(){
-        const data: any = await this.listageService.getVanancies()
-        // console.log(data)
-	    // console.log(data.length)
+    async getVacanciesRoute(@Query() query: FilterDTO){
+        console.log(query)
+        const data: any = await this.listageService.getVanancies(query)
+        // console.log(data[0].paridade)
         return data
     }
 
@@ -36,5 +36,13 @@ export class ListageController {
         // console.log(Object.keys(vanacnyData))
 
         return vanacnyData
+    }
+
+    @Get("getFilterInfos")
+    async getVacanciesFilterInfos(){
+        // console.log('slw')
+        const data = await this.listageService.getVacanciesFilterInfos()
+        console.log(data.countSites)
+        return data
     }
 }

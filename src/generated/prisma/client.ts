@@ -54,3 +54,28 @@ export type descricoes = Prisma.descricoesModel
  * 
  */
 export type vagas = Prisma.vagasModel
+/**
+ * Model get_last_disp_analysis_formated
+ * 
+ */
+export type get_last_disp_analysis_formated = Prisma.get_last_disp_analysis_formatedModel
+/**
+ * Model get_vacancies_vw
+ * 
+ */
+export type get_vacancies_vw = Prisma.get_vacancies_vwModel
+/**
+ * Model somar_pesquisa_feita_hoje
+ * 
+ */
+export type somar_pesquisa_feita_hoje = Prisma.somar_pesquisa_feita_hojeModel
+/**
+ * Model analyse_all_vacancies_getted
+ * 
+ */
+export type analyse_all_vacancies_getted = Prisma.analyse_all_vacancies_gettedModel
+/**
+ * Model analyse_today_vacancies_getted
+ * 
+ */
+export type analyse_today_vacancies_getted = Prisma.analyse_today_vacancies_gettedModel
