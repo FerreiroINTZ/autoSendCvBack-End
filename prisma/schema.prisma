@@ -72,19 +72,19 @@ view get_vacancies_vw {
   id               Int
   area             String   @db.VarChar(100)
   link             String   @db.VarChar(200)
-  salario          String   @db.VarChar(12)
   empresa          String   @db.VarChar(200)
   titulo           String   @db.VarChar(200)
   plataforma       String   @db.VarChar(20)
-  dt_publicacao    DateTime @db.Date
+  dt_publicacao    String?
   disponibilidade  Boolean
   acesso           String   @db.VarChar(20)
   /// de outro view
   last_disp_analys String
+  salario          String   @db.VarChar
   /// da tabela da IA
   paridade         Int
-  summary          String @db.VarChar(200)
   matches          String[] @db.VarChar(100)
+  summary          String   @db.VarChar(200)
   weaknesses       String[] @db.VarChar(200)
   justificativa    String
 }
@@ -103,4 +103,9 @@ view analyse_all_vacancies_getted {
 view analyse_today_vacancies_getted {
   paridade String?
   qtd      BigInt?
+}
+
+view format_salario {
+  id      Int?
+  salario String? @db.VarChar
 }

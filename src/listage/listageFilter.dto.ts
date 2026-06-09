@@ -82,10 +82,12 @@ export class FilterDTO{
     @IsOptional()
     acesso?: Acesso[]
 
+    // "true" = 4 -> 0
+    // !"true" = 0 -> 4
     @Transform(({value}) => value == "true" ? "desc" : "asc")
     @IsEnum(OrdemParidade)
     @IsOptional()
-    ordemParidade?: OrdemParidade = OrdemParidade.desc
+    ordemParidade?: OrdemParidade = OrdemParidade.asc
 
     @Transform(({value}) => Number(value))
     @IsNumber()

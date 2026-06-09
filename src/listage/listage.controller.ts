@@ -9,15 +9,16 @@ export class ListageController {
 
     @Get()
     async getVacanciesRoute(@Query() query: FilterDTO){
-        console.log(query)
         const data: any = await this.listageService.getVanancies(query)
-        // console.log(data[0].paridade)
+        // console.log(data[0])
+        // console.log("data")
+        // console.log(query)
         return data
     }
 
     @Get("getVancanyCardInfo")
     // se id for invalido, falha
-    // se nao retornar nnenhuma vaga, "falha"
+    // se nao retornar nenhuma vaga, "falha"
     // se retornar uma vaga, retorna um objeto
     async getVancanyCardInfo(@Query() query: {id: number}){
 

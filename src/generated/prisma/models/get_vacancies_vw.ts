@@ -44,7 +44,7 @@ export type Get_vacancies_vwMinAggregateOutputType = {
   empresa: string | null
   titulo: string | null
   plataforma: string | null
-  dt_publicacao: Date | null
+  dt_publicacao: string | null
   disponibilidade: boolean | null
   acesso: string | null
   last_disp_analys: string | null
@@ -61,7 +61,7 @@ export type Get_vacancies_vwMaxAggregateOutputType = {
   empresa: string | null
   titulo: string | null
   plataforma: string | null
-  dt_publicacao: Date | null
+  dt_publicacao: string | null
   disponibilidade: boolean | null
   acesso: string | null
   last_disp_analys: string | null
@@ -243,7 +243,7 @@ export type Get_vacancies_vwGroupByOutputType = {
   empresa: string
   titulo: string
   plataforma: string
-  dt_publicacao: Date
+  dt_publicacao: string
   disponibilidade: boolean
   acesso: string
   last_disp_analys: string
@@ -285,7 +285,7 @@ export type get_vacancies_vwWhereInput = {
   empresa?: Prisma.StringFilter<"get_vacancies_vw"> | string
   titulo?: Prisma.StringFilter<"get_vacancies_vw"> | string
   plataforma?: Prisma.StringFilter<"get_vacancies_vw"> | string
-  dt_publicacao?: Prisma.DateTimeFilter<"get_vacancies_vw"> | Date | string
+  dt_publicacao?: Prisma.StringFilter<"get_vacancies_vw"> | string
   disponibilidade?: Prisma.BoolFilter<"get_vacancies_vw"> | boolean
   acesso?: Prisma.StringFilter<"get_vacancies_vw"> | string
   last_disp_analys?: Prisma.StringFilter<"get_vacancies_vw"> | string
@@ -350,7 +350,7 @@ export type get_vacancies_vwScalarWhereWithAggregatesInput = {
   empresa?: Prisma.StringWithAggregatesFilter<"get_vacancies_vw"> | string
   titulo?: Prisma.StringWithAggregatesFilter<"get_vacancies_vw"> | string
   plataforma?: Prisma.StringWithAggregatesFilter<"get_vacancies_vw"> | string
-  dt_publicacao?: Prisma.DateTimeWithAggregatesFilter<"get_vacancies_vw"> | Date | string
+  dt_publicacao?: Prisma.StringWithAggregatesFilter<"get_vacancies_vw"> | string
   disponibilidade?: Prisma.BoolWithAggregatesFilter<"get_vacancies_vw"> | boolean
   acesso?: Prisma.StringWithAggregatesFilter<"get_vacancies_vw"> | string
   last_disp_analys?: Prisma.StringWithAggregatesFilter<"get_vacancies_vw"> | string
@@ -479,7 +479,7 @@ export type $get_vacancies_vwPayload<ExtArgs extends runtime.Types.Extensions.In
     empresa: string
     titulo: string
     plataforma: string
-    dt_publicacao: Date
+    dt_publicacao: string
     disponibilidade: boolean
     acesso: string
     /**
@@ -744,7 +744,7 @@ export interface get_vacancies_vwFieldRefs {
   readonly empresa: Prisma.FieldRef<"get_vacancies_vw", 'String'>
   readonly titulo: Prisma.FieldRef<"get_vacancies_vw", 'String'>
   readonly plataforma: Prisma.FieldRef<"get_vacancies_vw", 'String'>
-  readonly dt_publicacao: Prisma.FieldRef<"get_vacancies_vw", 'DateTime'>
+  readonly dt_publicacao: Prisma.FieldRef<"get_vacancies_vw", 'String'>
   readonly disponibilidade: Prisma.FieldRef<"get_vacancies_vw", 'Boolean'>
   readonly acesso: Prisma.FieldRef<"get_vacancies_vw", 'String'>
   readonly last_disp_analys: Prisma.FieldRef<"get_vacancies_vw", 'String'>

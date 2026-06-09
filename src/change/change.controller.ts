@@ -15,6 +15,7 @@ export class ChangeController {
 
     constructor(private readonly db: ChangeService){}
 
+    // muda o "estado" da vaga (salvo, acessado ou aplicado)
     @Get()
     async changeState(
         @Query() query: QueryDTO, 
